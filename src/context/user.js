@@ -12,7 +12,17 @@ const UserProvider=({children})=>{
      
     //state
     const [user,setUser]=React.useState(getUserLocalStorage())
- 
+         
+    //scroll button
+
+    const  [height,setHeight]=React.useState(0)
+      console.log(height)
+    React.useEffect(()=>{
+        window.addEventListener("scroll",()=>{
+            setHeight(window.pageYOffset)
+        })
+        return ()=> window.removeEventListener("scroll"),()=>{}
+    })
 
     //login function
     const userLogin=(user)=>{
@@ -46,7 +56,7 @@ const UserProvider=({children})=>{
     const hideAlert=()=>{
         setAlert({...alert,show:false})
     }
-   return <UserContext.Provider value={{user,userLogin,userLogout,showAlert,alert,hideAlert}}>
+   return <UserContext.Provider value={{height,user,userLogin,userLogout,showAlert,alert,hideAlert}}>
         {children}
     </UserContext.Provider>
 

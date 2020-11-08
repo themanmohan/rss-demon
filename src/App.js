@@ -16,6 +16,7 @@ import Products from './pages/Products'
 
 import Header from './components/Header'
 import PrivateRoute from './components/PrivateRoute'
+import Scroll_Button from './components/scroll_button'
 
 import Alert from './components/Alert'
 
@@ -25,6 +26,7 @@ export default function App() {
   <Router>
   <Header />
   <Alert />
+  <Scroll_Button/>
   <Switch>
     <Route exact path="/" >
     <Home />
